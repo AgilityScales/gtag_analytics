@@ -3,6 +3,7 @@
 
 @TestOn('browser')
 import 'package:gtag_analytics/gtag_analytics.dart';
+import 'package:gtag_analytics/src/interop.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -11,6 +12,13 @@ void main() {
 
     setUp(() {
       ga = new GoogleAnalytics();
+    });
+
+    test('config', () {
+      expect(
+          () =>
+              ga.config('GA_TRACKING_ID', options: Options(page_path: '/home')),
+          returnsNormally);
     });
 
     test('send pageview', () {
