@@ -17,7 +17,9 @@ class Options {
       int value,
       String method,
       String description,
-      bool fatal});
+      bool fatal,
+      String page_title,
+      String page_path});
 
   external String get description;
 
@@ -36,4 +38,12 @@ class Options {
   external int get value;
 
   external set value(int v);
+
+  external String get page_title;
+
+  external String get page_path;
+
+  external set page_title(String v);
+
+  external set page_path(String v);
 }

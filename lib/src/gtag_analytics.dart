@@ -71,4 +71,16 @@ class GoogleAnalytics {
       }
     }
   }
+
+  void config(String measurmentId, {Options options}) {
+    try {
+      gtag('config', measurmentId, options ?? _empty);
+      // ignore: avoid_catching_errors
+    } on NoSuchMethodError catch (e) {
+      if (!failSilently) {
+        throw new StateError('gtag function not found. Please make sure you '
+            'include the Google Analytics script in your HTML. ($e)');
+      }
+    }
+  }
 }
