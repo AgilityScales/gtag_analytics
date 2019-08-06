@@ -15,9 +15,7 @@ void main() {
     });
 
     test('config', () {
-      expect(
-          () =>
-              ga.config('GA_TRACKING_ID', options: Options(page_path: '/home')),
+      expect(() => ga.config('GA_TRACKING_ID', pagePath: '/home'),
           returnsNormally);
     });
 

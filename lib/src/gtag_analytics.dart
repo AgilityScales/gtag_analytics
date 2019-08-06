@@ -52,6 +52,12 @@ class GoogleAnalytics {
     _sendEvent('page_view', _empty);
   }
 
+  /// Configures GA instance with page parameters
+  void config(measurmentId, {String pagePath, String pageTitle}) {
+    _config(measurmentId,
+        options: Options(page_path: pagePath, page_title: pageTitle));
+  }
+
   /// Send a sign up event, with method (such as 'Facebook', 'email', or
   /// 'Google'.
   void sendSignUp({String method: 'N/A'}) {
@@ -72,7 +78,7 @@ class GoogleAnalytics {
     }
   }
 
-  void config(String measurmentId, {Options options}) {
+  void _config(String measurmentId, {Options options}) {
     try {
       gtag('config', measurmentId, options ?? _empty);
       // ignore: avoid_catching_errors
