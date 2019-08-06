@@ -53,8 +53,8 @@ class GoogleAnalytics {
   }
 
   /// Configures GA instance with page parameters
-  void config(measurmentId, {String pagePath, String pageTitle}) {
-    _config(measurmentId,
+  void config(measurementId, {String pagePath, String pageTitle}) {
+    _config(measurementId,
         options: Options(page_path: pagePath, page_title: pageTitle));
   }
 
@@ -78,9 +78,9 @@ class GoogleAnalytics {
     }
   }
 
-  void _config(String measurmentId, {Options options}) {
+  void _config(String measurementId, {Options options}) {
     try {
-      gtag('config', measurmentId, options ?? _empty);
+      gtag('config', measurementId, options ?? _empty);
       // ignore: avoid_catching_errors
     } on NoSuchMethodError catch (e) {
       if (!failSilently) {
